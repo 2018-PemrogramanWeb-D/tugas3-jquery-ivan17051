@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tugas 3 PWeb</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(() => {
+              $("#filter").on("keyup", function() {
+                var query = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(query) > -1)
+                });
+              });
+              $("#submit").on('click', () => {
+                  $("#photo").toggle();
+              });
+              $("#click").on('click', () => {
+                  $('#click').animate({ width: "400px", height: "200px" })
+              });
+              $("#click").mouseleave(function () {
+                  $('#click').animate({ width: "200px", height: "100px" })
+              });
+            });
+        </script>
+        <style>
+            table, th, td {
+            	margin-top: 10px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: center;
+            }
+            th {
+                color: white;
+                background-color: black;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <img src="https://ds6br8f5qp1u2.cloudfront.net/blog/wp-content/uploads/2016/08/click-me-button-flat-300x96.png?x88475" id="click" width="200" height="120"  alt="Logo">
+        <br>
+
+		<fieldset>
+			<img src="https://cdn.shopify.com/s/files/1/1252/0563/products/Hello_1024x1024.jpg?v=1536043414" id="photo" height="50px" width="100px">
+	        <br><br>     
+	        <button id="submit">Toggle</button>
+	        <br>
+		</fieldset>
+		
+        <br>
+        <input type="text" id="filter" placeholder="Filter">
+
+        <table id="myTable">
+        	<tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Kota Asal</th>
+            </tr>
+            <tr>
+                <td>Hendra</td>
+                <td>19</td>
+                <td>Surabaya</td>
+            </tr>
+            <tr>
+                <td>Ivan</td>
+                <td>19</td>
+                <td>Surabaya</td>
+            </tr>
+            <tr>
+                <td>Amanda</td>
+                <td>20</td>
+                <td>Sidoarjo</td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
